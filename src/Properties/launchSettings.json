@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "Conesoft.Plugin.TrayIcon": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
