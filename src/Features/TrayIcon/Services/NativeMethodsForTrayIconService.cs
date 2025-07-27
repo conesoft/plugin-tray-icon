@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-using System.Threading;
+﻿using System.Runtime.InteropServices;
 
 namespace Conesoft.Plugin.TrayIcon.Features.TrayIcon.Services;
 
@@ -16,8 +14,8 @@ partial class TrayIconService
             MSG msg;
             while (GetMessage(&msg, default, 0, 0) > 0)
             {
-            //    TranslateMessage(&msg);
-            //    DispatchMessage(&msg);
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
                 messageHandler?.Invoke(msg);
             }
         }

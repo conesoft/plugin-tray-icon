@@ -21,7 +21,12 @@ partial class TrayIconService(IHostApplicationLifetime application, HostEnvironm
             try
             {
                 var exitMenuItem = new TrayMenuItem { Content = $"Exit Application" };
-                exitMenuItem.Click += (s, e) => application.StopApplication();
+                exitMenuItem.Click += async (s, e) =>
+                {
+                    HttpClient client = new();
+                    await client.GetAsync("https://localhost/server/shutdown");
+                    application.StopApplication();
+                };
 
                 using var menu = new TrayMenu(new(CurrentIcon), environment.ApplicationName, true);
                 menu.Items.Add(exitMenuItem);

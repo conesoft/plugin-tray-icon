@@ -12,4 +12,4 @@ builder
     ;
 
 var host = builder.Build();
-await host.RunAsync();
+host.Run();
