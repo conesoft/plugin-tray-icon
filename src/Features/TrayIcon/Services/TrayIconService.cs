@@ -28,7 +28,9 @@ partial class TrayIconService(IHostApplicationLifetime application, HostEnvironm
                     application.StopApplication();
                 };
 
-                using var menu = new TrayMenu(new(CurrentIcon), environment.ApplicationName, true);
+                var servername = (environment.Global.Live / "Host").Directories.FirstOrDefault()?.Name ?? environment.ApplicationName;
+
+                using var menu = new TrayMenu(new(CurrentIcon), servername, true);
                 menu.Items.Add(exitMenuItem);
 
                 WatchThemeChange(() =>
